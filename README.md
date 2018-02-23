@@ -6,3 +6,5 @@ Picture项目的前端(the front end of the Picture)
 - 展示推送
 
 - 个人中心
+
+- 登录注册
