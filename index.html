@@ -23,12 +23,26 @@
 					<a href="postNew.html" id="postNewBtn"><span class="oi oi-plus"></span></a>
 				</div>
 				<div class="col-8">
-					<span class="d-flex justify-content-center">PICTURE</span>
+					<img src="images/logo.png" alt="logo" id="logo" data-toggle="tooltip" data-placement="right" title="点我回顶部" data-container="#header">
 				</div>
 				<div class="col-2">
 					<a href="logIn.html" id="userBtn"><span class="oi oi-person"></span></a>
 				</div>
 			</div>
+		</div>
+
+		<div id="tagNav" class="fixed-top clearfix">
+			<div class="row">
+				<div class="col-4 active">
+					<a href="">关注</a>
+				</div>
+				<div class="col-4">
+					<a href="">热门</a>
+				</div>
+				<div class="col-4">
+					<a href="">最新</a>
+				</div>
+			</div>	
 		</div>
 
 		<div id="stage">
@@ -46,22 +60,52 @@
 					</div>
 				</div>
 			</div>
+			<div class="card">
+				<img class="card-img-top" src="images/picture_logo.png" alt="Card image cap">
+				<div class="card-body">
+					<p class="card-text" id="text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<div class="row">
+						<div class="col-2 avator">
+							<img src="images/avator.jpg" alt="avator" class="rounded-circle">
+						</div>
+						<div class="col-10">
+							<a href="user.html">#用户名</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<img class="card-img-top" src="images/picture_logo.png" alt="Card image cap">
+				<div class="card-body">
+					<p class="card-text" id="text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<div class="row">
+						<div class="col-2 avator">
+							<img src="images/avator.jpg" alt="avator" class="rounded-circle">
+						</div>
+						<div class="col-10">
+							<a href="user.html">#用户名</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-
-		<div id="footer" class="fixed-bottom clearfix">
-			<div class="row">
-				<div class="col-4 active">
-					<a href="">关注</a>
-				</div>
-				<div class="col-4">
-					<a href="">热门</a>
-				</div>
-				<div class="col-4">
-					<a href="">最新</a>
-				</div>
-			</div>	
-		</div>
-		
 	</div>
 </body>
+<script>
+	$(function () {
+		$('#logo').tooltip();
+	})
+
+	$(window).scroll(function(){
+		if( $(this).scrollTop() > 500){
+			$('#logo').tooltip('show');
+		}else{
+			$('#logo').tooltip('hide');
+		}
+	});
+
+	$('#logo').click(function(){
+		$(window).scrollTop(0);
+	});
+</script>
 </html>
