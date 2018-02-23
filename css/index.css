@@ -15,3 +15,8 @@
 
 .card {
   margin-bottom: 5px; }
+
+.avator {
+  height: 40px; }
+  .avator img {
+    height: 100%; }

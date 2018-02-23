@@ -8,3 +8,5 @@ Picture项目的前端(the front end of the Picture)
 - 个人中心
 
 - 登录注册
+
+- 上传发布
