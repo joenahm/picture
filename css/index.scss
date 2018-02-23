@@ -1,0 +1,25 @@
+#footer{
+	height: 30px;
+	background: #fff;
+	line-height: 30px;
+	text-align: center;
+	border-top: 1px #000 solid;
+	box-shadow: 0 0 5px #555;
+
+	a{
+		color: #222;
+	}
+
+	.active{
+		background: #007bff;
+		font-weight: bold;
+
+		a{
+			color: #fff;
+		}
+	}
+}
+
+.card{
+	margin-bottom: 5px;
+}
