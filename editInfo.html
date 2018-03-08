@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>USER</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery-3.2.1.slim.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+	<div id="container">
+		<div id="header" class="fixed-top clearfix">
+			<div class="row">
+				<div class="col-2">
+					<a href="user.html" id="backBtn"><span class="oi oi-chevron-left"></span></a>
+				</div>
+				<div class="col-8">
+					<span class="d-flex justify-content-center">USER</span>
+				</div>
+				<div class="col-2">
+				</div>
+			</div>
+		</div>
+
+		<div id="stage">
+			<form action="#" method="post">
+						
+				<div class="card">
+					<div class="card-body">
+						<div class="form-group">
+							<label for="file">更换头像：</label>
+							<input type="file" class="form-control-file" id="file" name="file">
+						</div>
+						<div class="form-group">
+							<label for="username">更改个人简介：</label>
+							<input type="text" class="form-control" id="username" name="username" placeholder="请输入新的个人简介">
+						</div>
+					</div>
+				</div>
+				<div class="card mt-5">
+					<div class="row">
+						<div class="col-12">
+							<button type="button" class="btn btn-primary btn-block">确定</button>
+						</div>
+					</div>
+				</div>
+			</form>	
+		</div>		
+	</div>
+</body>
+</html>
