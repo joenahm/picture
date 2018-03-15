@@ -61,7 +61,7 @@
 									<img src="" alt="#这是验证码">
 								</div>
 								<div class="col-8">
-									<input type="password" class="form-control" id="vfcode" name="vfcode" placeholder="请输入验证码">
+									<input type="text" class="form-control" id="vfcode" name="vfcode" placeholder="请输入验证码">
 								</div>
 							</div>
 						</div>
@@ -72,5 +72,76 @@
 			</div>
 		</div>		
 	</div>
+	<div class="modal" id="alertModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">信息有误：</h5>
+				</div>
+				<div class="modal-body">
+					<!-- 错误信息输出位置 -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
+<script src="js/formCheck.js"></script>
+<script>
+	function formCheck(infoObjArr){
+		var status = true;
+		var alertInfoArr = [];
+
+		for( item in infoObjArr ){
+			switch( infoObjArr[item].attr("name") ){
+				case "username":
+					var username = infoObjArr['username'].val();
+					usernameCheck(username,alertInfoArr) ? null : status=false;
+				break;
+				case "gender":
+					var gender = infoObjArr['gender'].filter(':checked').val();
+					genderCheck(gender,alertInfoArr) ? null : status=false;	
+				break;
+				case "email":
+					var address = infoObjArr['email'].val();
+					emailCheck(address,alertInfoArr) ? null : status=false;
+				break;
+				case "password":
+					var password = infoObjArr['password'].val();
+					passwordCheck(password,alertInfoArr) ? null : status=false;	
+				break;
+				case "re-password":
+					var password = infoObjArr['password'].val();
+					var rePassword = infoObjArr['re-password'].val();
+					rePasswordCheck(password,rePassword,alertInfoArr) ? null : status=false;
+				break;
+				case "vfcode":
+					var vfcode = infoObjArr['vfcode'].val();
+					vfcodeCheck(vfcode,alertInfoArr) ? null : status=false;
+				break;
+			}
+		}
+
+		if( !status ){
+			showAlert(alertInfoArr);
+		}
+
+		return status;
+	}
+
+	$('form').eq(0).submit(function(){
+		var infoObjArr = [];
+		infoObjArr['username'] = $('input[name="username"]');
+		infoObjArr['gender'] = $('input[name="gender"]');
+		infoObjArr['email'] = $('input[name="email"]');
+		infoObjArr['password'] = $('input[name="password"]');
+		infoObjArr['re-password'] = $('input[name="re-password"]');
+		infoObjArr['vfcode'] = $('input[name="vfcode"]');
+
+		var status = formCheck(infoObjArr);
+		return status;
+	});
+</script>
 </html>

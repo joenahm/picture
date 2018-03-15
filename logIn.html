@@ -52,5 +52,55 @@
 			</div>
 		</div>		
 	</div>
+	<div class="modal" id="alertModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">信息有误：</h5>
+				</div>
+				<div class="modal-body">
+					<!-- 错误信息输出位置 -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
+<script src="js/formCheck.js"></script>
+<script>
+	function formCheck(infoObjArr){
+		var status = true;
+		var alertInfoArr = [];
+
+		for( item in infoObjArr ){
+			switch( infoObjArr[item].attr("name") ){
+				case "username":
+					var username = infoObjArr['username'].val();
+					usernameCheck(username,alertInfoArr) ? null : status=false;
+				break;
+				case "password":
+					var password = infoObjArr['password'].val();
+					passwordCheck(password,alertInfoArr) ? null : status=false;
+				break;
+			}
+		}
+
+		if( !status ){
+			showAlert(alertInfoArr);
+		}
+
+		return status;
+	}
+
+	$('form').eq(0).submit(function(){
+		var infoObjArr = [];
+		infoObjArr['username'] = $('input[name="username"]');
+		infoObjArr['password'] = $('input[name="password"]');
+
+		var status = formCheck(infoObjArr);
+		return status;
+	});
+</script>
 </html>
