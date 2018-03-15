@@ -3,6 +3,8 @@ Picture项目的前端(the front end of the Picture)
 
 **最新修改：**
 
+### 完成表单验证
+
 ### 主页：
 - ~~点赞（带数量）~~
 - ~~发布时间~~
