@@ -71,27 +71,28 @@
 <script src="js/formCheck.js"></script>
 <script>
 	function formCheck(infoObjArr){
-		var status = true;
 		var alertInfoArr = [];
 
 		for( item in infoObjArr ){
-			switch( infoObjArr[item].attr("name") ){
-				case "username":
-					var username = infoObjArr['username'].val();
-					usernameCheck(username,alertInfoArr) ? null : status=false;
-				break;
-				case "password":
-					var password = infoObjArr['password'].val();
-					passwordCheck(password,alertInfoArr) ? null : status=false;
-				break;
+			var obj = infoObjArr[item]
+			var checkFunc = obj.attr("name") + "Check";
+
+			var result = "";
+
+			result = eval(checkFunc+"(getValue(obj))");
+			
+			if( result != "" ){
+				alertInfoArr.push(result);
 			}
 		}
 
-		if( !status ){
+		if( alertInfoArr.length > 0 ){
 			showAlert(alertInfoArr);
-		}
 
-		return status;
+			return false;
+		}else{
+			return true;
+		}
 	}
 
 	$('form').eq(0).submit(function(){
@@ -99,8 +100,7 @@
 		infoObjArr['username'] = $('input[name="username"]');
 		infoObjArr['password'] = $('input[name="password"]');
 
-		var status = formCheck(infoObjArr);
-		return status;
+		return formCheck(infoObjArr);
 	});
 </script>
 </html>
